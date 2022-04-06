@@ -30,7 +30,7 @@ def output_csv(data, filename="output.csv", header=None):
                 "final_url",
                 ]
     
-    with open(filename, mode, newline="") as f:
+    with open(filename, mode, newline="", encoding="utf-8-sig") as f:
         writer = csv.writer(f)
         if mode == "w":
             writer.writerow(header)
