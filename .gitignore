@@ -1,3 +1,4 @@
 .vscode/
 app.py
 *.csv
+utils/__pycache__/
