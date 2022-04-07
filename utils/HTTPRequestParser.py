@@ -24,8 +24,8 @@ async def parse_code(url):
             data.append("request success")
         else:
             data.append("request error")
-        print("=="*10, url, response.history)
-        print("=="*10, url, response.status_code, response.url)
+        print("="*10, url, response.history)
+        print("="*10, url, response.status_code, response.url)
         redirected_codes = [str(x.status_code) for x in response.history]
         redirected_urls = [x.url for x in response.history]
         data.append("|".join(redirected_codes))

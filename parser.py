@@ -33,6 +33,13 @@ argparser.add_argument(
     help="batch size for async requests, default parsing 50 urls per batch."
 )
 
+argparser.add_argument(
+    "-t",
+    "--test-run",
+    action="store_true",
+    help="run test of async web requests"
+)
+
 args = argparser.parse_args()
 
 
@@ -48,12 +55,22 @@ def main():
         batch = urls[i:j]
         data = async_parse(batch)
         output_csv(data)
-    
+
+def test_run():
+    urls = [
+        "http://github.com",
+        "http://google.com",
+        "http://python.org",
+    ]
+    print(async_parse(urls))    
 
 if __name__ == "__main__":
     from time import perf_counter
     print(args)
     start = perf_counter()
-    main()
+    if args.test_run:
+        test_run()
+    else:
+        main()
     print(f"Parsing job finished in {perf_counter()-start:.2f}s.")
     print(f"Please copy the output file at '{args.output}', and delete afterwards.")
