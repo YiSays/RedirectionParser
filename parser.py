@@ -54,7 +54,7 @@ def main():
         print(f"BATCH JOB START: {i+1}/{total_num} url to {j}/{total_num} url")
         batch = urls[i:j]
         data = async_parse(batch)
-        output_csv(data)
+        output_csv(data, filename=args.output)
 
 def test_run():
     urls = [

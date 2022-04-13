@@ -33,7 +33,7 @@ async def parse_code(url):
         data.append(str(response.status_code))
         data.append(response.url)
     except Exception as e:
-        print("=="*10, url, "failed to connect")
+        print("="*10, url, "failed to connect")
         print(e)
         data.append("request failed")
     finally:
